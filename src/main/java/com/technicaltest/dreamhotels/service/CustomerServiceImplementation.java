@@ -32,7 +32,7 @@ public class CustomerServiceImplementation implements ICustomerService {
     }
 
     @Override
-    public List<Customer> getAllCustomers(Customer product) {
+    public List<Customer> getAllCustomers() {
         return iCustomerRepository.findAll();
     }
 

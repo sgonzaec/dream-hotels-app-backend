@@ -31,7 +31,7 @@ public class TravelAgencyServiceImplementation implements ITravelAgencyService {
     }
 
     @Override
-    public List<TravelAgency> getAllTravelAgencys(TravelAgency product) {
+    public List<TravelAgency> getAllTravelAgencys() {
         return iTravelAgencyRepository.findAll();
     }
 

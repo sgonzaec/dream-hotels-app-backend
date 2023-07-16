@@ -31,7 +31,7 @@ public class RoomServiceImplementation implements IRoomService {
     }
 
     @Override
-    public List<Room> getAllRooms(Room product) {
+    public List<Room> getAllRooms() {
         return iRoomRepository.findAll();
     }
 

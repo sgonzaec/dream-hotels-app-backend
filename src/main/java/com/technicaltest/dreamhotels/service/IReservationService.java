@@ -8,7 +8,7 @@ public interface IReservationService {
     public Reservation insertReservation(Reservation reservation);
     public void deleteReservationById(Long id);
     public Reservation updateReservation(Reservation reservation);
-    public List<Reservation> getAllReservations(Reservation reservation);
+    public List<Reservation> getAllReservations();
     public Reservation getReservationById(Long id);
 
 

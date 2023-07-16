@@ -8,7 +8,7 @@ public interface IRoomService {
     public Room insertRoom(Room room);
     public void deleteRoomById(Long id);
     public Room updateRoom(Room room);
-    public List<Room> getAllRooms(Room room);
+    public List<Room> getAllRooms();
     public Room getRoomById(Long id);
 
 

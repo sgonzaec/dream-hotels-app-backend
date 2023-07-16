@@ -31,7 +31,7 @@ public class ReservationServiceImplementation implements IReservationService {
     }
 
     @Override
-    public List<Reservation> getAllReservations(Reservation product) {
+    public List<Reservation> getAllReservations() {
         return iReservationRepository.findAll();
     }
 

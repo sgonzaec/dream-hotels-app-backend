@@ -8,7 +8,7 @@ public interface ITravelAgencyService {
     public TravelAgency insertTravelAgency(TravelAgency travelAgency);
     public void deleteTravelAgencyById(Long id);
     public TravelAgency updateTravelAgency(TravelAgency travelAgency);
-    public List<TravelAgency> getAllTravelAgencys(TravelAgency travelAgency);
+    public List<TravelAgency> getAllTravelAgencys();
     public TravelAgency getTravelAgencyById(Long id);
 
 
