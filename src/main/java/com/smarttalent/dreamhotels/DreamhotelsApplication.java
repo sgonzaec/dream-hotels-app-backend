@@ -12,7 +12,7 @@ public class DreamhotelsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DreamhotelsApplication.class, args);
 	}
-	@GetMapping("/")
+	@GetMapping("/hello")
 	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
 		return String.format("Hello %s!", name);
 	}
