@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity(name = "Customer")
-@Table(name = "Customer")
 public class Customer {
     public Customer() {
     }
@@ -20,7 +19,7 @@ public class Customer {
     @Column(name= "LAST_NAME")
     private String lastName;
     @Column(name= "FK_ID_RESERVATION_LIST")
-    @OneToMany(mappedBy = "Customer")
+    @OneToMany(mappedBy = "customer")
     private List<Reservation> reservationList;
     @Column(name = "CREATION_DATE")
     private LocalDateTime creationDate;

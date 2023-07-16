@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity(name = "TravelAgency")
-@Table(name = "TravelAgency")
 public class TravelAgency {
     public TravelAgency() {
     }
@@ -19,11 +18,22 @@ public class TravelAgency {
     private int name;
     @Column(name= "NIT")
     private int nit;
-    @OneToMany(mappedBy = "TravelAgency")
+    @OneToMany(mappedBy = "travelAgency")
     @Column(name= "FK_ID_HOTEL_LIST")
     private List<Hotel> hotelList;
     @Column(name = "CREATION_DATE")
     private LocalDateTime creationDate;
+    @Column(name= "FK_ID_RESERVATION_LIST")
+    @OneToMany(mappedBy = "travelAgency")
+    private List<Reservation> reservationList;
+
+    public List<Reservation> getReservationList() {
+        return reservationList;
+    }
+
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
+    }
 
     public long getTravelAgencyId() {
         return travelAgencyId;

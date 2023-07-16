@@ -12,7 +12,6 @@ import java.util.List;
  */
 
 @Entity(name = "Hotel")
-@Table(name = "Hotel")
 public class Hotel {
     public Hotel() {
     }
@@ -24,13 +23,24 @@ public class Hotel {
     @Column(name="NAME")
     private String name;
     @Column(name= "FK_ID_ROOM_LIST")
-    @OneToMany(mappedBy = "Hotel")
+    @OneToMany(mappedBy = "hotel")
     private List<Room> roomList;
+    @Column(name= "FK_ID_RESERVATION_LIST")
+    @OneToMany(mappedBy = "hotel")
+    private List<Reservation> reservationList;
     @ManyToOne
     @JoinColumn(name = "FK_ID_TRAVEL_AGENCY")
     private TravelAgency travelAgency;
     @Column(name = "CREATION_DATE")
     private LocalDateTime creationDate;
+
+    public List<Reservation> getReservationList() {
+        return reservationList;
+    }
+
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
+    }
 
     public long getHotelId() {
         return hotelId;

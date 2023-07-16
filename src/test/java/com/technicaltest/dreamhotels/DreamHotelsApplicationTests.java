@@ -18,12 +18,12 @@ class DreamHotelsApplicationTests {
 
 	//2. Creamos un metodo de tipo @Test y de nombre contextInsert
 	@Test
-	void testInsert() {
+	void testInsertHotel() {
 		//3. Invocar nuestro constructor
 		Hotel hotel = new Hotel();
 
 		//4. Asignamos valores...
-		hotel.setName("aviaturH");
+		hotel.setName("Dan Carlton");
 
 		//5. Finalidad invocamos al método insertHotel
 		iHotelService.insertHotel(hotel);

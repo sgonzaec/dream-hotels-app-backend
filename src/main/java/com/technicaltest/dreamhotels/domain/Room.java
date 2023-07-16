@@ -12,7 +12,6 @@ import java.util.List;
  */
 
 @Entity(name = "Room")
-@Table(name = "Room")
 public class Room {
     public Room() {
     }
@@ -30,8 +29,19 @@ public class Room {
     @ManyToOne
     @JoinColumn(name = "FK_ID_HOTEL")
     private Hotel hotel;
+    @OneToOne(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    private Reservation reservation;
     @Column(name = "CREATION_DATE")
     private LocalDateTime creationDate;
+
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
 
     public long getRoomId() {
         return roomId;

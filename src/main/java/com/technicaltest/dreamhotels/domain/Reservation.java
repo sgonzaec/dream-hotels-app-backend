@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
-@Table(name = "Reservation")
 @Entity(name = "Reservation")
 public class Reservation {
     public Reservation() {
@@ -16,18 +15,19 @@ public class Reservation {
     private long reservationId;
     @Column(name="TOTAL_DAYS")
     private int totalDays;
+
+    @JoinColumn(name = "FK_ID_ROOM")
+    @OneToOne(fetch = FetchType.LAZY)
+    private Room room;
+    @ManyToOne
+    @JoinColumn(name = "FK_ID_TRAVEL_AGENCY")
+    private TravelAgency travelAgency;
+    @ManyToOne
+    @JoinColumn(name = "FK_ID_HOTEL")
+    private Hotel hotel;
     @ManyToOne
     @JoinColumn(name = "FK_ID_CUSTOMER")
     private Customer customer;
-    @OneToOne(cascade=CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Room room;
-    @OneToOne(cascade=CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private TravelAgency travelAgency;
-    @OneToOne(cascade=CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Hotel hotel;
     @Column(name = "CREATION_DATE")
     private LocalDateTime creationDate;
 
