@@ -25,9 +25,7 @@ public class RoomServiceImplementation implements IRoomService {
 
     @Override
     public Room updateRoom(Room room) {
-        Room response = iRoomRepository.getReferenceById(room.getRoomId());
-        iRoomRepository.deleteById(room.getRoomId());
-        return iRoomRepository.save(room);
+        return iRoomRepository.saveAndFlush(room);
     }
 
     @Override

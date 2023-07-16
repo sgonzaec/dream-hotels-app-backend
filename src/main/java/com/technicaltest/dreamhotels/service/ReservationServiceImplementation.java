@@ -25,9 +25,7 @@ public class ReservationServiceImplementation implements IReservationService {
 
     @Override
     public Reservation updateReservation(Reservation reservation) {
-        Reservation response = iReservationRepository.getReferenceById(reservation.getReservationId());
-        iReservationRepository.deleteById(reservation.getReservationId());
-        return iReservationRepository.save(reservation);
+        return iReservationRepository.saveAndFlush(reservation);
     }
 
     @Override

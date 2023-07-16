@@ -15,7 +15,7 @@ public class TravelAgency {
     @Column(name= "ID_TRAVEL_AGENCY")
     private long travelAgencyId;
     @Column(name= "NAME")
-    private int name;
+    private String name;
     @Column(name= "NIT")
     private int nit;
     @OneToMany(mappedBy = "travelAgency")
@@ -43,11 +43,11 @@ public class TravelAgency {
         this.travelAgencyId = travelAgencyId;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 

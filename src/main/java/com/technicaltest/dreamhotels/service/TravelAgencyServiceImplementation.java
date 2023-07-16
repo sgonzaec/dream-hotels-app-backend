@@ -25,9 +25,7 @@ public class TravelAgencyServiceImplementation implements ITravelAgencyService {
 
     @Override
     public TravelAgency updateTravelAgency(TravelAgency travelAgency) {
-        TravelAgency response = iTravelAgencyRepository.getReferenceById(travelAgency.getTravelAgencyId());
-        iTravelAgencyRepository.deleteById(travelAgency.getTravelAgencyId());
-        return iTravelAgencyRepository.save(travelAgency);
+        return iTravelAgencyRepository.saveAndFlush(travelAgency);
     }
 
     @Override

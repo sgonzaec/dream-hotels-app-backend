@@ -24,9 +24,7 @@ public class HotelServiceImplementation implements IHotelService{
 
     @Override
     public Hotel updateHotel(Hotel hotel) {
-        Hotel response = iHotelRepository.getReferenceById(hotel.getHotelId());
-        iHotelRepository.deleteById(hotel.getHotelId());
-        return iHotelRepository.save(hotel);
+        return iHotelRepository.saveAndFlush(hotel);
     }
 
     @Override

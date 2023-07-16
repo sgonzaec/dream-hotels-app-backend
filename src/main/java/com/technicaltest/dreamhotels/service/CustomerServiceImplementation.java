@@ -26,9 +26,7 @@ public class CustomerServiceImplementation implements ICustomerService {
 
     @Override
     public Customer updateCustomer(Customer customer) {
-        Customer response = iCustomerRepository.getReferenceById(customer.getCustomerId());
-        iCustomerRepository.deleteById(customer.getCustomerId());
-        return iCustomerRepository.save(customer);
+        return iCustomerRepository.saveAndFlush(customer);
     }
 
     @Override
