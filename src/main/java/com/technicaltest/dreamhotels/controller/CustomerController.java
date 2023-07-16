@@ -2,6 +2,7 @@ package com.technicaltest.dreamhotels.controller;
 
 
 import com.technicaltest.dreamhotels.domain.Customer;
+
 import com.technicaltest.dreamhotels.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +13,14 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/api/customer")
 public class CustomerController {
-    @Autowired(required=true)
-    private ICustomerService iCustomerService;
+
+    private final ICustomerService iCustomerService;
+
+    @Autowired
+    public CustomerController(ICustomerService customerService) {
+        this.iCustomerService = customerService;
+    }
+
     @GetMapping("/{id}")
     public Customer getCustomerById(@PathVariable Long id) {
         return iCustomerService.getCustomerById(id);

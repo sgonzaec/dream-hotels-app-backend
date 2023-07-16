@@ -1,4 +1,4 @@
-package com.technicaltest.dreamcustomers.service;
+package com.technicaltest.dreamhotels.service;
 
 
 

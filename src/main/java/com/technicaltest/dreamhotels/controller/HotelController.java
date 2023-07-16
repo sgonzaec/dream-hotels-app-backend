@@ -10,15 +10,19 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @RequestMapping("/api/hotel")
-public class hotelController {
-    @Autowired(required=true)
-    private IHotelService iHotelService;
+public class HotelController {
+    private final IHotelService iHotelService;
+
+    @Autowired
+    public HotelController(IHotelService hotelService) {
+        this.iHotelService = hotelService;
+    }
     @GetMapping("/{id}")
     public Hotel getHotelById(@PathVariable Long id) {
         return iHotelService.getHotelById(id);
     }
 
-    @GetMapping("")
+    @GetMapping
     public List<Hotel> getAllHotels() {
         return iHotelService.getAllHotels();
     }

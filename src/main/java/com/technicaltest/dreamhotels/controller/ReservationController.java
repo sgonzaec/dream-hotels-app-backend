@@ -2,6 +2,7 @@ package com.technicaltest.dreamhotels.controller;
 
 
 import com.technicaltest.dreamhotels.domain.Reservation;
+import com.technicaltest.dreamhotels.service.ICustomerService;
 import com.technicaltest.dreamhotels.service.IReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +13,12 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/api/reservation")
 public class ReservationController {
-    @Autowired(required=true)
-    private IReservationService iReservationService;
+    private final IReservationService iReservationService;
+
+    @Autowired
+    public ReservationController(IReservationService reservationService) {
+        this.iReservationService = reservationService;
+    }
     @GetMapping("/{id}")
     public Reservation getReservationById(@PathVariable Long id) {
         return iReservationService.getReservationById(id);

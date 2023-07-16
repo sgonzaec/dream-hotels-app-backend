@@ -1,4 +1,4 @@
-package com.technicaltest.dreamtravelAgencys.service;
+package com.technicaltest.dreamhotels.service;
 
 
 import com.technicaltest.dreamhotels.domain.TravelAgency;
