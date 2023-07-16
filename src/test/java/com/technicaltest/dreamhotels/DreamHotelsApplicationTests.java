@@ -1,10 +1,10 @@
-package com.smarttalent.dreamhotels;
+package com.technicaltest.dreamhotels;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DreamhotelsApplicationTests {
+class DreamHotelsApplicationTests {
 
 	@Test
 	void contextLoads() {
