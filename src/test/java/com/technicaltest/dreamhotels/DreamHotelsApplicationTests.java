@@ -25,7 +25,7 @@ class DreamHotelsApplicationTests {
 		//4. Asignamos valores...
 		hotel.setName("aviaturH");
 
-		//5. Finalidad invocamos al método insertproduct
+		//5. Finalidad invocamos al método insertHotel
 		iHotelService.insertHotel(hotel);
 	}
 
