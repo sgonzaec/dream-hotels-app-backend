@@ -1,9 +1,9 @@
 package com.technicaltest.dreamhotels.controller;
 
 
-import com.technicaltest.dreamhotels.domain.TravelAgency;
-import com.technicaltest.dreamhotels.service.ICustomerService;
-import com.technicaltest.dreamhotels.service.ITravelAgencyService;
+import com.technicaltest.dreamhotels.domain.dto.TravelAgencyDTO;
+import com.technicaltest.dreamhotels.domain.entity.TravelAgency;
+import com.technicaltest.dreamhotels.service.interfaces.ITravelAgencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,21 +20,21 @@ public class TravelAgencyController {
         this.iTravelAgencyService = travelAgencyService;
     }
     @GetMapping("/{id}")
-    public TravelAgency getTravelAgencyById(@PathVariable Long id) {
+    public TravelAgencyDTO getTravelAgencyById(@PathVariable Long id) {
         return iTravelAgencyService.getTravelAgencyById(id);
     }
 
     @GetMapping("")
-    public List<TravelAgency> getAllTravelAgencys() {
+    public List<TravelAgencyDTO> getAllTravelAgencys() {
         return iTravelAgencyService.getAllTravelAgencys();
     }
     @PostMapping
-    public TravelAgency postTravelAgency(@RequestBody TravelAgency travelAgency) {
-        return iTravelAgencyService.insertTravelAgency(travelAgency);
+    public TravelAgencyDTO postTravelAgency(@RequestBody TravelAgencyDTO travelAgencyDTO) {
+        return iTravelAgencyService.insertTravelAgency(travelAgencyDTO);
     }
     @PutMapping
-    public TravelAgency putTravelAgency(@RequestBody TravelAgency travelAgency) {
-        return iTravelAgencyService.updateTravelAgency(travelAgency);
+    public TravelAgencyDTO putTravelAgency(@RequestBody TravelAgencyDTO travelAgencyDTO) {
+        return iTravelAgencyService.updateTravelAgency(travelAgencyDTO);
     }
     @DeleteMapping("/{id}")
     public void deleteTravelAgency(@PathVariable Long id) {

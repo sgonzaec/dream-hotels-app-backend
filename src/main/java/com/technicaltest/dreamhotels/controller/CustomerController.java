@@ -1,9 +1,10 @@
 package com.technicaltest.dreamhotels.controller;
 
 
-import com.technicaltest.dreamhotels.domain.Customer;
+import com.technicaltest.dreamhotels.domain.dto.CustomerDTO;
+import com.technicaltest.dreamhotels.domain.entity.Customer;
 
-import com.technicaltest.dreamhotels.service.ICustomerService;
+import com.technicaltest.dreamhotels.service.interfaces.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,21 +23,21 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public Customer getCustomerById(@PathVariable Long id) {
+    public CustomerDTO getCustomerById(@PathVariable Long id) {
         return iCustomerService.getCustomerById(id);
     }
 
     @GetMapping("")
-    public List<Customer> getAllCustomers() {
+    public List<CustomerDTO> getAllCustomers() {
         return iCustomerService.getAllCustomers();
     }
     @PostMapping
-    public Customer postCustomer(@RequestBody Customer customer) {
-        return iCustomerService.insertCustomer(customer);
+    public CustomerDTO postCustomer(@RequestBody CustomerDTO customerDTO) {
+        return iCustomerService.insertCustomer(customerDTO);
     }
     @PutMapping
-    public Customer putCustomer(@RequestBody Customer customer) {
-        return iCustomerService.updateCustomer(customer);
+    public CustomerDTO putCustomer(@RequestBody CustomerDTO customerDTO) {
+        return iCustomerService.updateCustomer(customerDTO);
     }
     @DeleteMapping("/{id}")
     public void deleteCustomer(@PathVariable Long id) {

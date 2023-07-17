@@ -1,21 +1,30 @@
 package com.technicaltest.dreamhotels.service;
 
 
-import com.technicaltest.dreamhotels.domain.Room;
+import com.technicaltest.dreamhotels.domain.dto.RoomDTO;
+import com.technicaltest.dreamhotels.domain.entity.Room;
+import com.technicaltest.dreamhotels.domain.entity.Room;
 import com.technicaltest.dreamhotels.repository.IRoomRepository;
-import com.technicaltest.dreamhotels.service.IRoomService;
+import com.technicaltest.dreamhotels.service.interfaces.IRoomService;
+import com.technicaltest.dreamhotels.service.mapper.RoomMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RoomServiceImplementation implements IRoomService {
     @Autowired
     IRoomRepository iRoomRepository;
+    @Autowired
+    RoomMapper roomMapper;
+
+
     @Override
-    public Room insertRoom(Room room) {
-        return iRoomRepository.save(room);
+    public RoomDTO insertRoom(RoomDTO roomDTO) {
+        Room room = roomMapper.convertToEntity(roomDTO);
+        return roomMapper.convertToDTO(iRoomRepository.save(room));
     }
 
     @Override
@@ -24,17 +33,20 @@ public class RoomServiceImplementation implements IRoomService {
     }
 
     @Override
-    public Room updateRoom(Room room) {
-        return iRoomRepository.saveAndFlush(room);
+    public RoomDTO updateRoom(RoomDTO roomDTO) {
+        Room room = roomMapper.convertToEntity(roomDTO);
+        return roomMapper.convertToDTO(iRoomRepository.saveAndFlush(room));
     }
 
     @Override
-    public List<Room> getAllRooms() {
-        return iRoomRepository.findAll();
+    public List<RoomDTO> getAllRooms() {
+        List<Room> rooms = iRoomRepository.findAll();
+        return rooms.stream()
+                .map(roomMapper::convertToDTO)
+                .collect(Collectors.toList());
     }
-
     @Override
-    public Room getRoomById(Long id) {
-        return iRoomRepository.getReferenceById(id);
+    public RoomDTO getRoomById(Long id) {
+        return roomMapper.convertToDTO(iRoomRepository.getReferenceById(id));
     }
 }
