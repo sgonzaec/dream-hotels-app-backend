@@ -1,9 +1,9 @@
 package com.technicaltest.dreamhotels.controller;
 
 
-import com.technicaltest.dreamhotels.domain.Reservation;
-import com.technicaltest.dreamhotels.service.ICustomerService;
-import com.technicaltest.dreamhotels.service.IReservationService;
+import com.technicaltest.dreamhotels.domain.dto.ReservationDTO;
+import com.technicaltest.dreamhotels.domain.entity.Reservation;
+import com.technicaltest.dreamhotels.service.interfaces.IReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,21 +20,21 @@ public class ReservationController {
         this.iReservationService = reservationService;
     }
     @GetMapping("/{id}")
-    public Reservation getReservationById(@PathVariable Long id) {
+    public ReservationDTO getReservationById(@PathVariable Long id) {
         return iReservationService.getReservationById(id);
     }
 
     @GetMapping("")
-    public List<Reservation> getAllReservations() {
+    public List<ReservationDTO> getAllReservations() {
         return iReservationService.getAllReservations();
     }
     @PostMapping
-    public Reservation postReservation(@RequestBody Reservation reservation) {
-        return iReservationService.insertReservation(reservation);
+    public ReservationDTO postReservation(@RequestBody ReservationDTO reservationDTO) {
+        return iReservationService.insertReservation(reservationDTO);
     }
     @PutMapping
-    public Reservation putReservation(@RequestBody Reservation reservation) {
-        return iReservationService.updateReservation(reservation);
+    public ReservationDTO putReservation(@RequestBody ReservationDTO reservationDTO) {
+        return iReservationService.updateReservation(reservationDTO);
     }
     @DeleteMapping("/{id}")
     public void deleteReservation(@PathVariable Long id) {

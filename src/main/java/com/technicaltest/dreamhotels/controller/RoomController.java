@@ -1,9 +1,9 @@
 package com.technicaltest.dreamhotels.controller;
 
 
-import com.technicaltest.dreamhotels.domain.Room;
-import com.technicaltest.dreamhotels.service.ICustomerService;
-import com.technicaltest.dreamhotels.service.IRoomService;
+import com.technicaltest.dreamhotels.domain.dto.RoomDTO;
+import com.technicaltest.dreamhotels.domain.entity.Room;
+import com.technicaltest.dreamhotels.service.interfaces.IRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,21 +20,21 @@ public class RoomController {
         this.iRoomService = roomService;
     }
     @GetMapping("/{id}")
-    public Room getRoomById(@PathVariable Long id) {
+    public RoomDTO getRoomById(@PathVariable Long id) {
         return iRoomService.getRoomById(id);
     }
 
     @GetMapping("")
-    public List<Room> getAllRooms() {
+    public List<RoomDTO> getAllRooms() {
         return iRoomService.getAllRooms();
     }
     @PostMapping
-    public Room postRoom(@RequestBody Room room) {
-        return iRoomService.insertRoom(room);
+    public RoomDTO postRoom(@RequestBody RoomDTO roomDTO) {
+        return iRoomService.insertRoom(roomDTO);
     }
     @PutMapping
-    public Room putRoom(@RequestBody Room room) {
-        return iRoomService.updateRoom(room);
+    public RoomDTO putRoom(@RequestBody RoomDTO roomDTO) {
+        return iRoomService.updateRoom(roomDTO);
     }
     @DeleteMapping("/{id}")
     public void deleteRoom(@PathVariable Long id) {
