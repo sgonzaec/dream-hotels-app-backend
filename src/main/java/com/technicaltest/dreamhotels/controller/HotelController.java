@@ -1,7 +1,8 @@
 package com.technicaltest.dreamhotels.controller;
 
-import com.technicaltest.dreamhotels.domain.Hotel;
-import com.technicaltest.dreamhotels.service.IHotelService;
+import com.technicaltest.dreamhotels.domain.dto.HotelDTO;
+import com.technicaltest.dreamhotels.domain.entity.Hotel;
+import com.technicaltest.dreamhotels.service.interfaces.IHotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,21 +19,21 @@ public class HotelController {
         this.iHotelService = hotelService;
     }
     @GetMapping("/{id}")
-    public Hotel getHotelById(@PathVariable Long id) {
+    public HotelDTO getHotelById(@PathVariable Long id) {
         return iHotelService.getHotelById(id);
     }
 
     @GetMapping
-    public List<Hotel> getAllHotels() {
+    public List<HotelDTO> getAllHotels() {
         return iHotelService.getAllHotels();
     }
     @PostMapping
-    public Hotel postHotel(@RequestBody Hotel hotel) {
-        return iHotelService.insertHotel(hotel);
+    public HotelDTO postHotel(@RequestBody HotelDTO hotelDTO) {
+        return iHotelService.insertHotel(hotelDTO);
     }
     @PutMapping
-    public Hotel putHotel(@RequestBody Hotel hotel) {
-        return iHotelService.updateHotel(hotel);
+    public HotelDTO putHotel(@RequestBody HotelDTO hotelDTO) {
+        return iHotelService.updateHotel(hotelDTO);
     }
     @DeleteMapping("/{id}")
     public void deleteHotel(@PathVariable Long id) {
